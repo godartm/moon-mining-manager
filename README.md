@@ -38,6 +38,13 @@ See also https://laravel.com/docs/10.x/installation.
 
 You can use Docker to run the app.
 
+Copy the example override file before starting (required once per clone):
+```
+cp docker-compose.override.yml.example docker-compose.override.yml
+```
+
+`docker-compose.override.yml` is gitignored so you can customise it locally (e.g. port mappings, volume mounts) without affecting other developers. The example ships the Vite dev-server port mapping (`5173:5173`).
+
 Start the dev containers and shells:
 ```
 docker-compose up
