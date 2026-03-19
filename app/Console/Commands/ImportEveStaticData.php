@@ -10,7 +10,8 @@ class ImportEveStaticData extends Command
     protected $signature = 'eve:import-static-data
                             {--table= : Import only a specific table}';
 
-    protected $description = 'Import EVE static data SQL dumps into the database';
+    // SDE conversions provided by Fuzzwork Enterprises: https://www.fuzzwork.co.uk/dump/
+    protected $description = 'Import Fuzzwork SDE conversion SQL dumps into the database';
 
     private const TABLES = [
         'mapRegions',
