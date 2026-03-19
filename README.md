@@ -30,7 +30,7 @@ This application manages moon-mining revenue and invoicing for EVE Online corpor
 * Run `composer install` to install backend dependencies.
 * Run `php artisan key:generate`.
 * Run `php artisan migrate` to create the database tables.
-* Regenerate js/css with `npm run production`, if they have changed.
+* Build frontend assets with `npm run build`.
 
 See also https://laravel.com/docs/10.x/installation.
 
@@ -43,13 +43,24 @@ Copy the example override file before starting (required once per clone):
 cp docker-compose.override.yml.example docker-compose.override.yml
 ```
 
-`docker-compose.override.yml` is gitignored so you can customise it locally (e.g. port mappings, volume mounts) without affecting other developers. The example ships the Vite dev-server port mapping (`5173:5173`).
+`docker-compose.override.yml` is gitignored. The example exposes port `5173` for Vite HMR.
 
 Start the dev containers and shells:
 ```
 docker-compose up
 docker-compose exec moon_php /bin/sh
 docker-compose run moon_node /bin/sh
+```
+
+Inside the node shell, run the Vite dev server:
+```
+npm install
+npm run dev
+```
+
+For a production build:
+```
+npm run build
 ```
 
 Generate files and annotations with the IDE Helper for Laravel:
